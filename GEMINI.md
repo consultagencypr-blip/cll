@@ -1,0 +1,2 @@
+# Gemini instructions
+Read `AI_CONTEXT.md` first. Treat it as the shared project source of truth. Preserve the business goals, conversion rules and technical architecture there. After any material change, update `AI_CONTEXT.md` and its change log. Do not commit secrets or publish unverified performance claims.
