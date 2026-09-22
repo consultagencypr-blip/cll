@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thelondonpropertymanager.com/sitemap.xml
