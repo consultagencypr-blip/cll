@@ -1,0 +1,72 @@
+name: Site quality checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate static site
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import re, sys, xml.etree.ElementTree as ET
+
+          required = [
+              "index.html","thank-you.html","privacy.html","404.html",
+              "robots.txt","sitemap.xml","netlify.toml","AI_CONTEXT.md"
+          ]
+          missing=[p for p in required if not Path(p).exists()]
+          if missing:
+              raise SystemExit("Missing required files: "+", ".join(missing))
+
+          class Parser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links=[]
+                  self.forms=[]
+                  self.ids=set()
+              def handle_starttag(self, tag, attrs):
+                  d=dict(attrs)
+                  if d.get("id"): self.ids.add(d["id"])
+                  if tag=="a" and d.get("href"): self.links.append(d["href"])
+                  if tag=="form": self.forms.append(d)
+
+          for filename in ["index.html","thank-you.html","privacy.html","404.html"]:
+              p=Parser()
+              text=Path(filename).read_text(encoding="utf-8")
+              p.feed(text)
+              if "<title>" not in text.lower():
+                  raise SystemExit(f"{filename}: missing title")
+              for href in p.links:
+                  if href.startswith(("/", "./")) and not href.startswith("//"):
+                      target=href.split("#",1)[0].split("?",1)[0]
+                      if not target or target=="/": continue
+                      target=target.lstrip("/")
+                      if not Path(target).exists():
+                          raise SystemExit(f"{filename}: broken local link {href}")
+
+          home=Path("index.html").read_text(encoding="utf-8")
+          checks=[
+              ('name="landlord-enquiry"', "lead form name"),
+              ('data-netlify="true"', "Netlify form marker"),
+              ('name="form-name"', "Netlify hidden form name"),
+              ('rel="canonical"', "canonical"),
+              ('application/ld+json', "structured data"),
+              ('id="utm_source"', "UTM capture")
+          ]
+          for token,label in checks:
+              if token not in home:
+                  raise SystemExit(f"index.html: missing {label}")
+
+          ET.parse("sitemap.xml")
+          robots=Path("robots.txt").read_text(encoding="utf-8")
+          if "Sitemap: https://thelondonpropertymanager.com/sitemap.xml" not in robots:
+              raise SystemExit("robots.txt: sitemap declaration missing")
+          print("Static site checks passed")
+          PY
