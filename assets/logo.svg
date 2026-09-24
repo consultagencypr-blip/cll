@@ -1,1 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">The London Property Manager</title><rect width="120" height="120" rx="22" fill="#0a0a0a"/><circle cx="60" cy="60" r="45" fill="none" stroke="#d6b36b" stroke-width="2"/><path d="M32 78V34h10v34h18v10H32Zm26 0V34h18c15 0 24 8 24 21 0 13-9 21-24 21h-8v2H58Zm10-12h8c9 0 14-4 14-11s-5-11-14-11h-8v22Z" fill="#d6b36b"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 235" role="img" aria-labelledby="title desc">
+<title id="title">The London Property Manager</title>
+<desc id="desc">Gold LPM monogram with a London skyline on a transparent background.</desc>
+<defs>
+  <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#f4d78e"/>
+    <stop offset=".42" stop-color="#d8b36a"/>
+    <stop offset=".72" stop-color="#b68b43"/>
+    <stop offset="1" stop-color="#f0cf82"/>
+  </linearGradient>
+  <linearGradient id="darkGold" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#70511f"/>
+    <stop offset="1" stop-color="#1a160f"/>
+  </linearGradient>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="140%">
+    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".65"/>
+  </filter>
+</defs>
+
+<!-- skyline, deliberately transparent around the artwork -->
+<g fill="url(#darkGold)" stroke="#d7b169" stroke-width="1.8" opacity=".96">
+  <!-- Tower Bridge -->
+  <path d="M22 139h65v-7h18v7h62v13H22z"/>
+  <path d="M38 139v-42h18v42M132 139V97h18v42"/>
+  <path d="M34 97h26l-13-19zM128 97h26l-13-19z"/>
+  <path d="M56 114h76" fill="none"/>
+  <!-- Shard -->
+  <path d="M190 139l24-104 24 104z"/>
+  <!-- City blocks -->
+  <path d="M244 139V94h24v45M270 139V76h20v63M292 139v-31h22v31M318 139V88h26v51"/>
+  <!-- Gherkin -->
+  <path d="M359 139c-10-12-14-29-11-48 3-18 11-30 20-38 10 9 18 21 20 39 2 18-2 35-12 47z"/>
+  <path d="M350 83l35 25M349 106l32-24M353 66l29 52" fill="none" opacity=".55"/>
+  <!-- Walkie / blocks -->
+  <path d="M405 139V78h36l7 16v45M450 139V98h30v41M485 139V70h24v69"/>
+  <!-- St Paul's -->
+  <path d="M528 139v-26h45v26M536 113c0-15 7-27 15-27s15 12 15 27M548 86v-13h7v13M551 73v-9" />
+  <!-- London Eye -->
+  <circle cx="625" cy="103" r="38" fill="none" stroke="#d7b169" stroke-width="3"/>
+  <circle cx="625" cy="103" r="4" fill="#d7b169"/>
+  <g stroke="#b88d45" fill="none" stroke-width="1">
+    <path d="M625 65v76M587 103h76M598 76l54 54M598 130l54-54"/>
+  </g>
+  <path d="M625 107l-17 32h34z" fill="none"/>
+  <!-- Big Ben -->
+  <path d="M692 139V67h24v72M696 67l8-17 8 17M700 50l4-17 4 17"/>
+  <circle cx="704" cy="84" r="7" fill="#0d0d0d" stroke="#d7b169"/>
+</g>
+
+<!-- subtle sweep -->
+<path d="M12 145c116 7 216 5 304 0 101-6 215-2 432 1" fill="none" stroke="url(#gold)" stroke-width="3" opacity=".78"/>
+
+<!-- primary monogram -->
+<g filter="url(#shadow)">
+  <text x="382" y="155" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="128" letter-spacing="-11" fill="url(#gold)" stroke="#7d5e29" stroke-width="2.4">LPM</text>
+</g>
+
+<!-- descriptor -->
+<g fill="#d8b36a">
+  <path d="M118 194h92v2H118zM550 194h92v2h-92z"/>
+  <text x="380" y="204" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500" letter-spacing="7">LONDON PROPERTY MANAGER</text>
+</g>
+</svg>
