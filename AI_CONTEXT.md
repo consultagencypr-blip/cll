@@ -1,6 +1,6 @@
 # Shared AI project context — The London Property Manager
 
-Last updated: 2026-09-22
+Last updated: 2026-09-24
 
 ## Purpose
 This repository is the shared source of truth for ChatGPT, Claude, Gemini and human collaborators working on the landlord-acquisition website for The London Property Manager.
@@ -61,6 +61,13 @@ Do not create thin doorway pages. Location pages should contain genuinely useful
 - Add Meta/Google Ads tracking only with approved IDs and appropriate consent configuration.
 
 ## Change log
+### 2026-09-24
+- Replaced the old fake form-success behaviour with a real Netlify form workflow.
+- Added an appropriate submission/loading state and a dedicated confirmation page.
+- Static repository QA passed 32/32 checks covering form wiring, SEO metadata, structured data, redirects, security headers, mobile basics, robots and sitemap.
+- Awaiting Netlify GitHub linking / redeploy before full live-site verification.
+- User requested repository privacy and production use of the supplied LPM logo.
+
 ### 2026-09-22
 - Created GitHub source of truth.
 - Rebuilt homepage around landlord conversion intent.
