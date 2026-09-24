@@ -66,7 +66,9 @@ Do not create thin doorway pages. Location pages should contain genuinely useful
 - Added an appropriate submission/loading state and a dedicated confirmation page.
 - Static repository QA passed 32/32 checks covering form wiring, SEO metadata, structured data, redirects, security headers, mobile basics, robots and sitemap.
 - Awaiting Netlify GitHub linking / redeploy before full live-site verification.
-- User requested repository privacy and production use of the supplied LPM logo.
+- Reworked the supplied LPM visual direction into a transparent gold London lockup that blends into the black/gold site chrome without a square background.
+- Static repository QA now passes 36/36 checks after the logo and form updates.
+- Repository privacy is still pending because the connected GitHub integration does not expose repository-visibility changes.
 
 ### 2026-09-22
 - Created GitHub source of truth.
